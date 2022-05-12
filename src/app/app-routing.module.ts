@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'quien-soy', component: QuienSoyComponent },
   { path: 'home', component: HomeComponent },
   { path: 'listado', component: ListadoComponent },
-  { path: 'mugre', component: MugreComponent },
+  { path: 'estadisticas', component: MugreComponent },
   // { path: '**', component: NotFoundComponent },
   { path: 'juegos', component: JuegosComponent, children: [
     {path: 'mayor-menor', component: MayorMenorComponent },

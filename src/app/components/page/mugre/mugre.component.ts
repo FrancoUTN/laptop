@@ -21,41 +21,13 @@ export class MugreComponent {
   }
 
   obtenerEstadisticas() {
-
-    this.coleccion.get().subscribe
-    (
+    this.coleccion.get().subscribe(
       (querySnapshot) => {
         querySnapshot.forEach(
-          (doc) => {
-            // console.log(doc.id, " => ", doc.data());
-
-            this.estadisticas.push(doc.data());
-          }
+          (doc) => this.estadisticas.push(doc.data())
         )
       }
     );
-
-  }
-
-  consolear() {
-    console.log("HOLA");
-
-    // this.items.subscribe(a => console.log(a))
-
-    // this.items.subscribe(
-    //   a => this.estadisticas = a
-    //   )
-
-    this.coleccion.get().
-      subscribe(
-        function(querySnapshot) {
-          querySnapshot.forEach(
-            function(doc) {
-              console.log(doc.id, " => ", doc.data());
-            }
-          )
-        }
-      );
   }
 
 }
