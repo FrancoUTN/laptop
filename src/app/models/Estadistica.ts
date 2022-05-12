@@ -1,4 +1,4 @@
 export interface Estadistica {
-    uid:string;
+    uid:string|undefined;
     mayorMenor:number;
 }

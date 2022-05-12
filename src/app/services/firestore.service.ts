@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
-import { Estadistica } from '../models/Estadistica';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +16,11 @@ export class FirestoreService {
     this.items = this.coleccion.valueChanges();
   }
 
-  agregar (estadistica:Estadistica) {
-    this.coleccion.add(estadistica);
+  agregar (item:any) {
+    this.coleccion.add(item);
+  }
+
+  traerColeccion () {
+    
   }
 }

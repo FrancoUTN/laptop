@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FirestoreService } from 'src/app/services/firestore.service';
+import { MediadorService } from 'src/app/services/mediador.service';
 import { Estadistica } from '../../../models/Estadistica';
 
 @Component({
@@ -17,21 +17,14 @@ export class ListadoComponent implements OnInit {
   }
 
   constructor(
-    private firestoreService:FirestoreService
+    private mediadorService:MediadorService
   ) { }
 
   ngOnInit(): void {
-    this.firestoreService.items.subscribe(
-      (a) => this.listado = a
-    )
   }
 
-  verEnConsola () {
-    console.log(this.listado);
-  }
-
-  modificar () {
-    this.firestoreService.agregar(this.mockEstadistica)
+  traerLista() {
+    this.mediadorService.subscribir(this.listado);
   }
   
 
