@@ -1,10 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListadoComponent } from './components/page/listado/listado.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegistroComponent } from './components/registro/registro.component';
+import { JuegosComponent } from './components/page/juegos/juegos.component';
+import { NotFoundComponent } from './components/page/not-found/not-found.component';
+import { QuienSoyComponent } from './components/quien-soy/quien-soy.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'listado', pathMatch: 'full' },
-  { path: 'listado', component: ListadoComponent }
+  
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'registro', component: RegistroComponent },
+  { path: 'quien-soy', component: QuienSoyComponent },
+  { path: 'home', component: HomeComponent },
+  // { path: '**', component: NotFoundComponent },
+  { path: 'juegos', component: JuegosComponent, children: [
+    {path: '**', component: NotFoundComponent }
+  ] }
+
 ];
 
 @NgModule({

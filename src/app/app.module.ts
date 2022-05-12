@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { FormsModule } from '@angular/forms';
+
 import { environment } from '../environments/environment';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MayorMenorComponent } from './components/page/mayor-menor/mayor-menor.component';
 import { LoginComponent } from './components/login/login.component';
@@ -35,6 +37,7 @@ import { ListadoComponent } from './components/page/listado/listado.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule    
