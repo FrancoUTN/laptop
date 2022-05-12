@@ -22,6 +22,7 @@ import { AhorcadoComponent } from './components/page/ahorcado/ahorcado.component
 import { ListadoComponent } from './components/page/listado/listado.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MugreComponent } from './components/page/mugre/mugre.component';
+import { BienvenidaComponent } from './components/page/bienvenida/bienvenida.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MugreComponent } from './components/page/mugre/mugre.component';
     AhorcadoComponent,
     ListadoComponent,
     MenuComponent,
-    MugreComponent
+    MugreComponent,
+    BienvenidaComponent
   ],
   imports: [
     BrowserModule,

@@ -10,17 +10,30 @@ import { MayorMenorComponent } from './components/page/mayor-menor/mayor-menor.c
 import { PreguntadosComponent } from './components/page/preguntados/preguntados.component';
 import { ListadoComponent } from './components/page/listado/listado.component';
 import { MugreComponent } from './components/page/mugre/mugre.component';
+import { BienvenidaComponent } from './components/page/bienvenida/bienvenida.component';
 
 const routes: Routes = [
   
+  // { path: '', redirectTo: 'login', pathMatch: 'full' },
+  // { path: 'login', component: LoginComponent },
+  // { path: 'registro', component: RegistroComponent },
+  // { path: 'quien-soy', component: QuienSoyComponent },
+  // { path: 'home', component: HomeComponent },
+  // { path: 'listado', component: ListadoComponent },
+  // { path: 'estadisticas', component: MugreComponent },
+  // { path: '**', component: NotFoundComponent },
+
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
-  { path: 'quien-soy', component: QuienSoyComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'listado', component: ListadoComponent },
-  { path: 'estadisticas', component: MugreComponent },
-  // { path: '**', component: NotFoundComponent },
+
+  { path: 'home', component: HomeComponent, children: [
+    {path: '', component: BienvenidaComponent },
+    { path: 'quien-soy', component: QuienSoyComponent },
+    { path: 'estadisticas', component: MugreComponent },
+    {path: '**', component: NotFoundComponent }
+  ] },
+
   { path: 'juegos', component: JuegosComponent, children: [
     {path: 'mayor-menor', component: MayorMenorComponent },
     {path: 'preguntados', component: PreguntadosComponent },
