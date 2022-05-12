@@ -27,7 +27,9 @@ export class MugreComponent {
       (querySnapshot) => {
         querySnapshot.forEach(
           (doc) => {
-            console.log(doc.id, " => ", doc.data());
+            // console.log(doc.id, " => ", doc.data());
+
+            this.estadisticas.push(doc.data());
           }
         )
       }

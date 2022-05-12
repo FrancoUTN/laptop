@@ -2,9 +2,30 @@
     <button class="btn btn-primary" (click)="consolear()">Ver</button>
     <button class="btn btn-primary" (click)="obtenerEstadisticas()">Obtener estadísticas</button>
 
-    <ul>
+    <!-- <ul>
         <li *ngFor="let item of estadisticas">
-            {{item.mayorMenor}}
+            {{item.email}}, {{item.mayorMenor}}, {{item.preguntados}}
         </li>
-    </ul>
+    </ul> -->
+</div>
+
+<div class="container">
+    <table class="table table-striped">
+    <thead>
+        <tr>
+        <th>Usuario</th>
+        <th>mayorMenor</th>
+        <th>preguntados</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let alumno of estadisticas">
+        <td>{{alumno.email}}</td>
+        <td>{{alumno.mayorMenor}}</td>
+        <td>{{alumno.preguntados}}</td>
+        <!-- <td><button type="button" class="btn btn-info btn-circle"   (click)="">Det.</button></td> -->
+        </tr>
+        
+    </tbody>
+    </table>
 </div>
