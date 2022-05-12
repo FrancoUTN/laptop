@@ -7,10 +7,28 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MayorMenorComponent } from './components/page/mayor-menor/mayor-menor.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegistroComponent } from './components/registro/registro.component';
+import { HomeComponent } from './components/home/home.component';
+import { QuienSoyComponent } from './components/quien-soy/quien-soy.component';
+import { JuegosComponent } from './components/page/juegos/juegos.component';
+import { NotFoundComponent } from './components/page/not-found/not-found.component';
+import { PreguntadosComponent } from './components/page/preguntados/preguntados.component';
+import { AhorcadoComponent } from './components/page/ahorcado/ahorcado.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MayorMenorComponent,
+    LoginComponent,
+    RegistroComponent,
+    HomeComponent,
+    QuienSoyComponent,
+    JuegosComponent,
+    NotFoundComponent,
+    PreguntadosComponent,
+    AhorcadoComponent
   ],
   imports: [
     BrowserModule,
