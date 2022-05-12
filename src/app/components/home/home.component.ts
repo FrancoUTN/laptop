@@ -19,6 +19,8 @@ export class HomeComponent implements OnInit {
   
   signOut() {
     this.authenticationService.SignOut();
+    
+    this.router.navigateByUrl('');
   }
 
 }
