@@ -17,7 +17,8 @@ export class FirestoreService {
     this.items = this.coleccion.valueChanges();
   }
 
-  agregar (estadistica:Estadistica) {
-    this.coleccion.add(estadistica);
+  agregar (uid:string|undefined, estadistica:Estadistica) {
+    // this.coleccion.add(estadistica);
+    this.coleccion.doc(uid).set(estadistica);
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MediadorService } from 'src/app/services/mediador.service';
+import { ScoresService } from 'src/app/services/scores.service';
 
 @Component({
   selector: 'app-mayor-menor',
@@ -14,7 +15,8 @@ export class MayorMenorComponent implements OnInit {
   halago:string = '';
   halagos:Array<string> = ["Bien!", "Eso!!", "Muy bien!!", "Dale!", "Seguí así!!"];
 
-  constructor(private mediadorService:MediadorService) { }
+  constructor(private mediadorService:MediadorService,
+    private scoresService:ScoresService) { }
 
   ngOnInit(): void {
     this.cartaActual = this.getRndCard();
@@ -69,8 +71,17 @@ export class MayorMenorComponent implements OnInit {
     this.halago = this.halagos[random];
   }
 
-  guardarScore () {
-    this.mediadorService.crearEstadistica(this.puntaje);
+  // guardarScore () {
+  //   this.mediadorService.crearEstadistica(this.puntaje);
+  // }
+
+  // sendScoreYJuego () {
+  //   this.scoresService.setScoreYJuego("mayorMenor", this.puntaje);
+  // }
+
+  sendScore () {    
+    this.scoresService.setScoreMayorMenor(this.puntaje);
   }
+
 
 }

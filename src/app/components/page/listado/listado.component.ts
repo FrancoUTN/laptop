@@ -11,10 +11,10 @@ export class ListadoComponent implements OnInit {
 
   listado:Array<Estadistica> = [];
   
-  mockEstadistica:Estadistica = {
-    uid: "wersdf",
-    mayorMenor: 5
-  }
+  // mockEstadistica:Estadistica = {
+  //   uid: "wersdf",
+  //   mayorMenor: 5
+  // }
 
   constructor(
     private mediadorService:MediadorService

@@ -1,4 +1,5 @@
 export interface Estadistica {
-    uid:string|undefined;
+    // uid:string|undefined;
     mayorMenor:number;
+    preguntados:number;
 }

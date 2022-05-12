@@ -22,16 +22,16 @@ export class MediadorService {
    }
 
   crearEstadistica (puntaje:number) {
-    this.estadistica = {
-      uid: this.uid,
-      mayorMenor: puntaje
-    };
+    // this.estadistica = {
+    //   // uid: this.uid,
+    //   mayorMenor: puntaje
+    // };
 
-    this.firestoreService.agregar(this.estadistica);
+    // this.firestoreService.agregar(this.uid, this.estadistica);
   }
 
   agregarEstadistica (item:Estadistica) {
-    this.firestoreService.agregar(item)
+    this.firestoreService.agregar(this.uid, item)
   }
 
   subscribir (items:Array<Estadistica>) {    

@@ -3,6 +3,7 @@ import { Pregunta } from 'src/app/models/pregunta';
 
 import { PreguntadosService } from 'src/app/services/preguntados.service';
 import { Location } from '@angular/common';
+import { ScoresService } from 'src/app/services/scores.service';
 
 
 @Component({
@@ -22,7 +23,8 @@ export class PreguntadosComponent implements OnInit {
 
   constructor(
     private preguntadosService: PreguntadosService,
-    private location: Location) { }
+    private location: Location,
+    private scoresService:ScoresService) { }
 
   ngOnInit(): void {
     let jsonPath;
@@ -62,6 +64,10 @@ export class PreguntadosComponent implements OnInit {
     }
 
     this.generarPreguntaAleatoria();
+  }  
+
+  sendScore () {    
+    this.scoresService.setScorePreguntados(this.puntaje);
   }
 
 }
