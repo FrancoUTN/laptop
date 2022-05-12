@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from 'src/app/services/firestore.service';
+import { Estadistica } from '../../../models/Estadistica';
 
 @Component({
   selector: 'app-listado',
@@ -8,7 +9,12 @@ import { FirestoreService } from 'src/app/services/firestore.service';
 })
 export class ListadoComponent implements OnInit {
 
-  listado:Array<any> = [];
+  listado:Array<Estadistica> = [];
+  
+  mockEstadistica:Estadistica = {
+    uid: "wersdf",
+    mayorMenor: 5
+  }
 
   constructor(
     private firestoreService:FirestoreService
@@ -20,6 +26,13 @@ export class ListadoComponent implements OnInit {
     )
   }
 
+  verEnConsola () {
+    console.log(this.listado);
+  }
+
+  modificar () {
+    this.firestoreService.agregar(this.mockEstadistica)
+  }
   
 
 }
