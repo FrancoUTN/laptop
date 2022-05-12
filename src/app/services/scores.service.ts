@@ -13,7 +13,8 @@ export class ScoresService {
 
   coleccion:AngularFirestoreCollection<any>;
   // items: Observable<any[]>;
-  uid:string|undefined;
+  uid:string = '';
+  email:string = '';
   
   constructor(
     firestore: AngularFirestore,
@@ -25,8 +26,31 @@ export class ScoresService {
       // this.items = this.coleccion.valueChanges();
 
       this.afAuth.authState.subscribe(
-        (codigo) => this.uid = codigo?.uid
+        (codigo) => {
+          if (codigo) {            
+            if (codigo.email) {
+              this.uid = codigo.uid;
+              this.email = codigo.email;
+            }
+            else {
+              console.log("El usuario no tiene email.");
+            }
+          }
+          else {
+            console.log("No hay usuario.");
+          }
+        } 
       )
+  }
+
+  subscribir (items:Array<Estadistica>) {    
+    this.firestoreService.items.subscribe(
+      (a) => items = a
+    )
+  }
+
+  retornarColeccion () {
+    return this.coleccion;
   }
 
   agregar (uid:string|undefined, estadistica:Estadistica) {
@@ -34,7 +58,7 @@ export class ScoresService {
     this.coleccion.doc(uid).set(estadistica);
   }
 
-  // setScoreYJuego (juego:string, puntaje:number) {
+  // setScore (juego:string, puntaje:number) {
   //   this.coleccion.doc(this.uid).set({
   //     juego:puntaje
   //   });
@@ -42,17 +66,18 @@ export class ScoresService {
   
   setScoreMayorMenor (puntaje:number) {
     this.coleccion.doc(this.uid).update({
+      email: this.email,
       mayorMenor: puntaje
     });
   }
 
   setScorePreguntados (puntaje:number) {
-
     // let document = this.coleccion.doc(this.uid).get();
 
     // console.log(document);
 
     this.coleccion.doc(this.uid).update({
+      email: this.email,
       preguntados: puntaje
     });
   }

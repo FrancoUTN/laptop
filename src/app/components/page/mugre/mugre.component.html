@@ -1,0 +1,10 @@
+<div class="container">
+    <button class="btn btn-primary" (click)="consolear()">Ver</button>
+    <button class="btn btn-primary" (click)="obtenerEstadisticas()">Obtener estadísticas</button>
+
+    <ul>
+        <li *ngFor="let item of estadisticas">
+            {{item.mayorMenor}}
+        </li>
+    </ul>
+</div>

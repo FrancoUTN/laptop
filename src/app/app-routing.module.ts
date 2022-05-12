@@ -8,6 +8,8 @@ import { QuienSoyComponent } from './components/quien-soy/quien-soy.component';
 import { HomeComponent } from './components/home/home.component';
 import { MayorMenorComponent } from './components/page/mayor-menor/mayor-menor.component';
 import { PreguntadosComponent } from './components/page/preguntados/preguntados.component';
+import { ListadoComponent } from './components/page/listado/listado.component';
+import { MugreComponent } from './components/page/mugre/mugre.component';
 
 const routes: Routes = [
   
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
   { path: 'quien-soy', component: QuienSoyComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'listado', component: ListadoComponent },
+  { path: 'mugre', component: MugreComponent },
   // { path: '**', component: NotFoundComponent },
   { path: 'juegos', component: JuegosComponent, children: [
     {path: 'mayor-menor', component: MayorMenorComponent },

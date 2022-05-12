@@ -21,6 +21,7 @@ import { PreguntadosComponent } from './components/page/preguntados/preguntados.
 import { AhorcadoComponent } from './components/page/ahorcado/ahorcado.component';
 import { ListadoComponent } from './components/page/listado/listado.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { MugreComponent } from './components/page/mugre/mugre.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MenuComponent } from './components/menu/menu.component';
     PreguntadosComponent,
     AhorcadoComponent,
     ListadoComponent,
-    MenuComponent
+    MenuComponent,
+    MugreComponent
   ],
   imports: [
     BrowserModule,
