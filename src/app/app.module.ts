@@ -5,6 +5,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { environment } from '../environments/environment';
 
@@ -19,6 +20,7 @@ import { NotFoundComponent } from './components/page/not-found/not-found.compone
 import { PreguntadosComponent } from './components/page/preguntados/preguntados.component';
 import { AhorcadoComponent } from './components/page/ahorcado/ahorcado.component';
 import { ListadoComponent } from './components/page/listado/listado.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { ListadoComponent } from './components/page/listado/listado.component';
     NotFoundComponent,
     PreguntadosComponent,
     AhorcadoComponent,
-    ListadoComponent
+    ListadoComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { ListadoComponent } from './components/page/listado/listado.component';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule    
+    AngularFirestoreModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

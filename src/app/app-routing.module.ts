@@ -6,6 +6,8 @@ import { JuegosComponent } from './components/page/juegos/juegos.component';
 import { NotFoundComponent } from './components/page/not-found/not-found.component';
 import { QuienSoyComponent } from './components/quien-soy/quien-soy.component';
 import { HomeComponent } from './components/home/home.component';
+import { MayorMenorComponent } from './components/page/mayor-menor/mayor-menor.component';
+import { PreguntadosComponent } from './components/page/preguntados/preguntados.component';
 
 const routes: Routes = [
   
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   // { path: '**', component: NotFoundComponent },
   { path: 'juegos', component: JuegosComponent, children: [
+    {path: 'mayor-menor', component: MayorMenorComponent },
+    {path: 'preguntados', component: PreguntadosComponent },
     {path: '**', component: NotFoundComponent }
   ] }
 
