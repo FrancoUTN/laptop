@@ -16,6 +16,7 @@ import { JuegosComponent } from './components/page/juegos/juegos.component';
 import { NotFoundComponent } from './components/page/not-found/not-found.component';
 import { PreguntadosComponent } from './components/page/preguntados/preguntados.component';
 import { AhorcadoComponent } from './components/page/ahorcado/ahorcado.component';
+import { ListadoComponent } from './components/page/listado/listado.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AhorcadoComponent } from './components/page/ahorcado/ahorcado.component
     JuegosComponent,
     NotFoundComponent,
     PreguntadosComponent,
-    AhorcadoComponent
+    AhorcadoComponent,
+    ListadoComponent
   ],
   imports: [
     BrowserModule,
