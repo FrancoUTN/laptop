@@ -22,10 +22,12 @@ export class MugreComponent {
 
   obtenerEstadisticas() {
     this.coleccion.get().subscribe(
-      (querySnapshot) => {
-        querySnapshot.forEach(
-          (doc) => this.estadisticas.push(doc.data())
-        )
+      (qs) => {
+        qs.forEach(
+          (doc) => this.estadisticas.push({id: doc.id, ...doc.data()})
+        );
+
+        console.log(this.estadisticas);
       }
     );
   }

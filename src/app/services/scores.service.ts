@@ -64,14 +64,7 @@ export class ScoresService {
   //   });
   // }
   
-  setScoreMayorMenor (puntaje:number) {
-
-    // if (this.coleccion.doc(this.uid)) {
-      // this.coleccion.doc(this.uid).get().subscribe(
-      //   (a) => console.log(a.exists)
-      // )
-
-      
+  setScoreMayorMenor (puntaje:number) {      
     this.coleccion.doc(this.uid).get().subscribe(
       (document) => {
         if (document.exists) {
@@ -88,24 +81,30 @@ export class ScoresService {
         }
       }
     )
-
-    // }
-
-    // this.coleccion.doc(this.uid).update({
-    //   email: this.email,
-    //   mayorMenor: puntaje
-    // });
   }
 
   setScorePreguntados (puntaje:number) {
-    // let document = this.coleccion.doc(this.uid).get();
-
-    // console.log(document);
-
     this.coleccion.doc(this.uid).update({
       email: this.email,
       preguntados: puntaje
     });
+
+    this.coleccion.doc(this.uid).get().subscribe(
+      (document) => {
+        if (document.exists) {
+          this.coleccion.doc(this.uid).update({
+            email: this.email,
+            preguntados: puntaje
+          });
+        }
+        else {
+          this.coleccion.doc(this.uid).set({
+            email: this.email,
+      preguntados: puntaje
+          });
+        }
+      }
+    )
   }
   
 }
