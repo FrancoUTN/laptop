@@ -10,32 +10,16 @@ export class AuthenticationService {
   constructor(private angularFireAuth: AngularFireAuth) {
   }
   
-  /* Sign up */
   SignUp(email: string, password: string) {
-
-    return new Promise<any>((resolve, reject) => {
-      this.angularFireAuth.createUserWithEmailAndPassword(email, password)
-        .then(
-          res => resolve(res),
-          err => reject(err))
-    })
+    return this.angularFireAuth.createUserWithEmailAndPassword(email, password);
   }
   
-  /* Sign in */
   SignIn(email: string, password: string) {
-    
-    return new Promise<any>((resolve, reject) => {
-      this.angularFireAuth.signInWithEmailAndPassword(email, password)
-        .then(
-          res => resolve(res),
-          err => reject(err))
-    })
+    return this.angularFireAuth.signInWithEmailAndPassword(email, password);
   }
   
-  /* Sign out */
   SignOut() {
-    this.angularFireAuth
-      .signOut();
+    this.angularFireAuth.signOut();
   }
 
 }

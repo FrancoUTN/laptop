@@ -23,7 +23,8 @@ export class RegistroComponent implements OnInit {
     this.authenticationService.SignUp(value.email, value.password)
       .then( () => {
         this.router.navigateByUrl('home');
-      });
+      })
+      .catch( razon => console.log(razon));
   }
   
 }
