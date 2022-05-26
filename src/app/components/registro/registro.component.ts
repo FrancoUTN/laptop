@@ -21,10 +21,8 @@ export class RegistroComponent implements OnInit {
   
   signUp(value:User) {
     this.authenticationService.SignUp(value.email, value.password)
-      .then( () => {
-        this.router.navigateByUrl('home');
-      })
-      .catch( razon => console.log(razon));
+      .then(() => this.router.navigateByUrl('home'))
+      .catch(razon => console.log(razon));
   }
   
 }

@@ -66,8 +66,8 @@ export class PreguntadosComponent implements OnInit {
     this.generarPreguntaAleatoria();
   }  
 
-  sendScore () {    
-    this.scoresService.setScorePreguntados(this.puntaje);
+  sendScore () {
+    this.scoresService.setScore('preguntados', this.puntaje);
   }
 
 }

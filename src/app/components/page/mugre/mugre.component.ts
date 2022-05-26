@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
+import { ScoresService } from 'src/app/services/scores.service';
 
 @Component({
   selector: 'app-mugre',
@@ -8,28 +7,17 @@ import { Observable } from 'rxjs';
   styleUrls: ['./mugre.component.scss']
 })
 export class MugreComponent {
-
-  coleccion:AngularFirestoreCollection<any>;
-  items: Observable<any[]>;
-
   estadisticas:Array<any> = [];
   
-  constructor(firestore: AngularFirestore) {
-    this.coleccion = firestore.collection('estadisticas');
+  constructor(scoresService:ScoresService) {
+    const coleccion = scoresService.retornarColeccion();
 
-    this.items = this.coleccion.valueChanges();
-  }
-
-  obtenerEstadisticas() {
-    this.coleccion.get().subscribe(
+    coleccion.get().subscribe(
       (qs) => {
         qs.forEach(
           (doc) => this.estadisticas.push({id: doc.id, ...doc.data()})
         );
-
-        console.log(this.estadisticas);
       }
     );
   }
-
 }

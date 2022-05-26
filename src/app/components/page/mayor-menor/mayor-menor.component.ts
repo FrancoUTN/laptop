@@ -71,17 +71,8 @@ export class MayorMenorComponent implements OnInit {
     this.halago = this.halagos[random];
   }
 
-  // guardarScore () {
-  //   this.mediadorService.crearEstadistica(this.puntaje);
-  // }
-
-  // sendScoreYJuego () {
-  //   this.scoresService.setScoreYJuego("mayorMenor", this.puntaje);
-  // }
-
-  sendScore () {    
-    this.scoresService.setScoreMayorMenor(this.puntaje);
+  sendScore () {
+    this.scoresService.setScore('mayorMenor', this.puntaje);
   }
-
 
 }
