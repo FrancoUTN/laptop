@@ -13,6 +13,7 @@ export class MayorMenorComponent implements OnInit {
   puntaje:number = 0;
   halago:string = '';
   halagos:Array<string> = ["Bien!", "Eso!!", "Muy bien!!", "Dale!", "Seguí así!!"];
+  recienEmpieza:boolean = true;
 
   constructor(private scoresService:ScoresService) { }
 
@@ -38,6 +39,9 @@ export class MayorMenorComponent implements OnInit {
   }
 
   compararCartas(diceQueEsMayor:boolean) {
+    if (this.recienEmpieza) {
+      this.recienEmpieza = false;
+    }
 
     if (diceQueEsMayor == this.verSiEsMayor()) {
       this.puntaje += 1;

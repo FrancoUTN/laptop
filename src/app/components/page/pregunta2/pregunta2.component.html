@@ -12,10 +12,16 @@
         </button>
     </div>
 
+    <p *ngIf="this.adivino" class="text-success">
+        ¡Correcto!
+    </p>    
+    <p *ngIf="!this.adivino && !this.recienEmpieza" class="text-danger">
+        Incorrecto
+    </p>
+
     <p class="lead">
         Puntaje: {{puntaje}}
-    </p>
-    
+    </p>    
     <button class="btn btn-primary rounded w-50" (click)="sendScore()">
         Guardar score
     </button>

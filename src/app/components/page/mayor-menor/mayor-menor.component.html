@@ -11,8 +11,8 @@
             <p class="fs-3">
                 Puntaje: {{this.puntaje}}
             </p>
-            <p class="text-danger" *ngIf="this.puntaje == 0">
-                Perdiste!
+            <p class="text-danger" *ngIf="this.puntaje == 0 && !this.recienEmpieza">
+                ¡Perdiste!
             </p>                
             <p class="text-success" *ngIf="this.puntaje > 0">
                 {{this.halago}}

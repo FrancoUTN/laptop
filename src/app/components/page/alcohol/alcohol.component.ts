@@ -71,7 +71,7 @@ export class AlcoholComponent implements OnInit {
       this.resultado = 'bien';
       this.puntaje += 1;
     }
-    else if (this.guess > aprox - 2 && this.guess < aprox + 2) {
+    else if (this.guess >= aprox - 2 && this.guess <= aprox + 2) {
       this.resultado = 'cerca';
     }
     else if (this.puntaje > 0) {

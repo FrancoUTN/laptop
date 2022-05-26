@@ -14,6 +14,8 @@ export class Pregunta2Component implements OnInit {
   imagen:string = '';
   correcta:string = '';
   puntaje:number = 0;
+  adivino:boolean = false;
+  recienEmpieza:boolean = true;
 
   constructor(
     private pregunta2Service:Pregunta2Service,
@@ -51,11 +53,17 @@ export class Pregunta2Component implements OnInit {
   }
 
   onRtaClick (respuesta: string) {
+    if (this.recienEmpieza) {
+      this.recienEmpieza = false;
+    }
+
     if (respuesta === this.correcta) {
       this.puntaje += 1;
+      this.adivino = true;
     }
     else if (this.puntaje > 0) {
       this.puntaje -= 1;
+      this.adivino = false;
     }
 
     this.generar();
