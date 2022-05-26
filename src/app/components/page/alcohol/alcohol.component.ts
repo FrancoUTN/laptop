@@ -39,7 +39,6 @@ export class AlcoholComponent implements OnInit {
 
     const aleatorio = this.getRndInteger(0, this.productos.length - 1);
     this.producto = this.productos.splice(aleatorio, 1)[0];
-    console.log(this.producto.nutriments.alcohol);
   }
 
   traerBebidas() {

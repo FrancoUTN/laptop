@@ -39,7 +39,6 @@ export class Pregunta2Component implements OnInit {
           this.imagen = trago.strDrinkThumb;
 
           this.respuestas.push(this.correcta);
-          console.log("Correcta: " + this.correcta);
         }
         else {
           this.respuestas.push(response.drinks[0].strDrink);
