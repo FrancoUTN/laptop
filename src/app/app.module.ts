@@ -23,6 +23,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { MugreComponent } from './components/page/mugre/mugre.component';
 import { BienvenidaComponent } from './components/page/bienvenida/bienvenida.component';
 import { Pregunta2Component } from './components/page/pregunta2/pregunta2.component';
+import { AlcoholComponent } from './components/page/alcohol/alcohol.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { Pregunta2Component } from './components/page/pregunta2/pregunta2.compon
     MenuComponent,
     MugreComponent,
     BienvenidaComponent,
-    Pregunta2Component
+    Pregunta2Component,
+    AlcoholComponent
   ],
   imports: [
     BrowserModule,

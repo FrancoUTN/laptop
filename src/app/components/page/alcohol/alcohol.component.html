@@ -1,0 +1,53 @@
+<div *ngIf="!this.producto" class="container d-flex flex-column align-items-center justify-content-around border w-50 p-0" style="height: 75vh;">
+    <div class="h-50 w-100 d-flex align-items-center justify-content-center bg-dark bg-gradient">
+        <h2>Por favor, espere...</h2>
+    </div>
+</div>
+
+<div
+    *ngIf="this.producto"
+    class="container d-flex flex-column align-items-center justify-content-around border w-50 p-0"
+    style="height: 75vh;"
+>
+    <h2>Adivina la graduación alcohólica</h2>
+    <p>
+        (Aproximada)
+    </p>
+    <div class="h-50 w-100 d-flex align-items-center justify-content-center bg-dark bg-gradient">
+        <img src="{{this.producto.image_url}}" alt="Bebida" class="mh-100 mw-100">
+    </div>
+    <h4>
+        {{this.producto.product_name}}
+    </h4>
+    <input
+        type="range"
+        class="form-range px-5"
+        min="0" max="40"
+        [(ngModel)]="guess">
+    <p>alc. <span class="fw-bold">{{guess}}%</span> vol.</p>
+    <button class="btn btn-outline-primary rounded w-50" (click)="onRtaClick()">
+        Probar
+    </button>
+    <div [ngSwitch]="resultado" class="d-flex flex-column justify-content-center">
+        <div class="d-flex justify-content-between align-items-center">
+            <p *ngSwitchCase="'bien'" class="text-success">
+                ¡Bien! <span>({{this.respuesta}}%)</span>
+            </p>    
+            <p *ngSwitchCase="'cerca'" class="text-warning">
+                ¡Estuviste cerca! <span>({{this.respuesta}}%)</span>
+            </p>
+            <p *ngSwitchCase="'mal'" class="text-danger">
+                Error <span>({{this.respuesta}}%)</span>
+            </p>
+            <p *ngSwitchDefault="">
+                Adivina...
+            </p>
+        </div>
+    </div>
+    <p class="lead">
+        Puntaje: {{puntaje}}
+    </p>
+    <button class="btn btn-primary rounded w-50" (click)="sendScore()">
+        Guardar score
+    </button>
+</div>

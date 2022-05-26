@@ -11,6 +11,7 @@ import { PreguntadosComponent } from './components/page/preguntados/preguntados.
 import { MugreComponent } from './components/page/mugre/mugre.component';
 import { BienvenidaComponent } from './components/page/bienvenida/bienvenida.component';
 import { Pregunta2Component } from './components/page/pregunta2/pregunta2.component';
+import { AlcoholComponent } from './components/page/alcohol/alcohol.component';
 
 const routes: Routes = [
   
@@ -37,6 +38,7 @@ const routes: Routes = [
     {path: 'mayor-menor', component: MayorMenorComponent },
     // {path: 'preguntados', component: PreguntadosComponent },
     {path: 'preguntados', component: Pregunta2Component },
+    {path: 'alcohol', component: AlcoholComponent },
     {path: '**', component: NotFoundComponent }
   ] }
 
