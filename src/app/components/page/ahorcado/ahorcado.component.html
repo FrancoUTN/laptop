@@ -17,31 +17,37 @@
         </div>
     </div>
     <div>
-        <p *ngIf="this.vidas > 0 && !this.win">
+        <p *ngIf="this.vidas > 0 && !this.juegoTerminado">
             Te quedan <span>{{this.vidas}}</span> vidas.
         </p>
-        <p *ngIf="this.vidas === 0" class="text-danger">
+        <p *ngIf="this.vidas === 0" class="text-danger fw-bold">
             ¡AHORCADO!
         </p>
-        <p *ngIf="this.win" class="text-success fw-bold">
+        <p *ngIf="this.vidas > 0 && this.juegoTerminado" class="text-success fw-bold">
             ¡GANASTE!
         </p>
     </div>
-    <div class="row w-50 justify-content-center">
+    <div class="row w-50 justify-content-center" *ngIf="!this.juegoTerminado">
         <div
             class="col-1 m-1"
             *ngFor="let caracter of this.letras"
-        >        
-            <button *ngIf="caracter != ''" class="btn btn-primary" (click)="onTeclaClick(caracter)">
+        >
+            <button *ngIf="caracter" class="btn btn-primary" (click)="onTeclaClick(caracter)">
                 {{caracter}}
             </button>
         </div>
     </div>
 
     <div class="m-4">
-        <button *ngIf="this.win" class="btn btn-outline-primary" (click)="onReiniciarClick()">
+        <button *ngIf="this.juegoTerminado" class="btn btn-outline-primary" (click)="reiniciar()">
             ¿Reiniciar?
         </button>
     </div>
 
+    <p class="">
+        Puntaje: {{puntaje}}
+    </p>
+    <button class="btn btn-primary rounded w-25" (click)="sendScore()">
+        Guardar score
+    </button>
 </div>
