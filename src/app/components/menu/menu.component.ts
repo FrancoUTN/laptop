@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../../services/authentication.service';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  email:string = '';
+
+  constructor(
+    private router: Router,
+    private authenticationService:AuthenticationService) {
+      this.authenticationService.getAuthState().subscribe(
+        (codigo) => {
+          if (codigo) {
+            if (codigo.email) {
+              this.email = codigo.email;
+            }
+            else {
+              console.log("El usuario no tiene email.");
+            }
+          }
+          else {
+            console.log("No hay usuario.");
+          }
+        }
+      );
+  }
 
   ngOnInit(): void {
   }
 
+  signOut() {
+    this.authenticationService.SignOut();
+    
+    this.router.navigateByUrl('');
+  }
 }
