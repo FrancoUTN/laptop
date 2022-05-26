@@ -12,6 +12,7 @@ import { BienvenidaComponent } from './components/page/bienvenida/bienvenida.com
 import { Pregunta2Component } from './components/page/pregunta2/pregunta2.component';
 import { AlcoholComponent } from './components/page/alcohol/alcohol.component';
 import { ChatComponent } from './components/page/chat/chat.component';
+import { AhorcadoComponent } from './components/page/ahorcado/ahorcado.component';
 
 const routes: Routes = [
   
@@ -36,6 +37,7 @@ const routes: Routes = [
   ] },
 
   { path: 'juegos', component: JuegosComponent, children: [
+    {path: 'ahorcado', component: AhorcadoComponent },
     {path: 'mayor-menor', component: MayorMenorComponent },
     {path: 'preguntados', component: Pregunta2Component },
     {path: 'alcoholimetro', component: AlcoholComponent },

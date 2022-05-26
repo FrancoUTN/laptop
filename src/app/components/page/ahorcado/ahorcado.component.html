@@ -1,1 +1,51 @@
-<p>ahorcado works!</p>
+<div class="d-flex flex-column justify-content-center align-items-center my-5">
+    <h1>Ahorcado</h1>
+
+    <div class="d-flex m-5">
+        <div
+            style="
+                padding: .5em;
+                margin: .5em;
+                border-bottom: 1px solid;
+                height: 2.5em;
+            "
+            *ngFor="let caracter of this.arrayActual"
+        >
+            <span>
+                {{caracter}}
+            </span>
+        </div>
+    </div>
+
+    <div class="row w-50 justify-content-center">
+        <div
+            class="col-1 m-1"
+            *ngFor="let caracter of this.letras"
+        >        
+            <button *ngIf="caracter != ''" class="btn btn-primary" (click)="onTeclaClick(caracter)">
+                {{caracter}}
+            </button>
+            <!-- <button *ngIf="caracter === '-'" class="btn btn-primary" disabled>
+                {{caracter}}
+            </button> -->
+        </div>
+    </div>
+
+    <!-- <div class="d-flex">
+        <div
+            style="
+                padding: .5em;
+                margin: .5em;
+            "
+            *ngFor="let caracter of this.letras"
+        >
+            <button class="btn btn-primary">
+                {{caracter}}
+            </button>
+        </div>
+    </div> -->
+
+    <!-- <input type="text" [(ngModel)]="letra">
+    <button (click)="masSimple()">Comparar</button> -->
+
+</div>
