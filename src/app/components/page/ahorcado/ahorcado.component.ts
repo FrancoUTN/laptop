@@ -16,12 +16,15 @@ export class AhorcadoComponent implements OnInit {
   letras:Array<string> = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
                           'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 
                           'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-  letra:string = '';
+  // letra:string = '';
+
+  vidas:number = 7;
+  win:boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.palabra = "HOLAS";
+    this.palabra = "H";
     this.arrayOriginal = this.palabra.split("");
     this.arrayActual.length = this.arrayOriginal.length;
   }
@@ -39,27 +42,40 @@ export class AhorcadoComponent implements OnInit {
   // }
 
   onTeclaClick(caracter:string) {
-    this.letra = caracter;
+    // this.letra = caracter;
+    let adivino:boolean = false;
 
     for (let i = 0; i < this.arrayOriginal.length; i++) {
-      if (this.letra === this.arrayOriginal[i]) {
-        this.arrayActual[i] = this.letra;
+      if (caracter === this.arrayOriginal[i]) {
+        this.arrayActual[i] = caracter;
+        adivino = true;
       }
     }
 
+    // this.letras = this.letras.filter(letra => letra !== caracter);
+
     this.letras = this.letras.map(
-      (letra) => {
+      letra => {
         let aux = letra;
 
-        this.arrayActual.forEach(element => {
-          if (letra == element) {
+        if (letra === caracter) {
             aux = '';
-            return;
-          }
-        });
+        }
 
         return aux;
       }
-    )
+    );
+
+    if (!adivino) {
+      this.vidas--;
+    }
+    else if (this.arrayActual.join("") === this.palabra) {
+      this.win = true;
+    }
   }
+
+  onReiniciarClick() {
+
+  }
+
 }
