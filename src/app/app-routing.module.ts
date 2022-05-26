@@ -14,16 +14,7 @@ import { AlcoholComponent } from './components/page/alcohol/alcohol.component';
 import { ChatComponent } from './components/page/chat/chat.component';
 import { AhorcadoComponent } from './components/page/ahorcado/ahorcado.component';
 
-const routes: Routes = [
-  
-  // { path: '', redirectTo: 'login', pathMatch: 'full' },
-  // { path: 'login', component: LoginComponent },
-  // { path: 'registro', component: RegistroComponent },
-  // { path: 'quien-soy', component: QuienSoyComponent },
-  // { path: 'home', component: HomeComponent },y
-  // { path: 'estadisticas', component: MugreComponent },
-  // { path: '**', component: NotFoundComponent },
-
+const routes: Routes = [  
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
