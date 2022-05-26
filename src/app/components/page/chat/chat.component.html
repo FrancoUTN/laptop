@@ -1,1 +1,49 @@
-<p>chat works!</p>
+<div style="
+    background-color:blue;
+    padding-left: 1em;
+    margin: 2em;
+    padding-bottom: 4em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end"
+>
+    <h1 style="align-self: flex-start; color: azure;">Chat</h1>
+    <div *ngIf="cargando" class="spinner-border text-secondary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <div
+        *ngFor="let mensaje of mensajes"
+        style="
+            background-color: lightgrey;
+            padding-left: 1em;
+            padding-right: 1em;
+            margin: 1em;
+            border-radius: 1em;"
+    >
+        <p class="fw-bold">
+            <span class="fw-light">
+                {{mensaje.hora}}:
+            </span>
+            {{mensaje.email}}:
+        </p>
+        <p style="text-align: end;">
+            {{mensaje.texto}}
+        </p>
+    </div>
+    <div style="width: 60%; margin: 1em;">
+        <input
+            onFocus="this.select()"
+            type="text"
+            class="w-100"
+            [(ngModel)]="texto"
+            (keydown)="teclaApretada($event)"
+        >
+    </div>
+    <!-- <textarea
+        name="mensaje"
+        cols="100"
+        rows="1"
+        [(ngModel)]="texto"
+        (keydown)="teclaApretada($event)"
+    ></textarea> -->
+</div>
