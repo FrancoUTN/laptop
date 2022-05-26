@@ -1,0 +1,22 @@
+<div class="container d-flex flex-column align-items-center justify-content-around border w-50 p-0" style="height: 75vh;">
+
+    <h2>¿Qué trago es?</h2>
+
+    <div class="h-50 w-100 d-flex align-items-center justify-content-center bg-light bg-gradient">
+        <img src="{{imagen}}" alt="Cocktail" class="mh-100 mw-100">
+    </div>
+
+    <div class="d-flex flex-column justify-content-around h-25 w-75">
+        <button class="btn btn-outline-primary rounded w-100" *ngFor="let respuesta of respuestas" (click)="onRtaClick(respuesta)">
+            {{respuesta}}
+        </button>
+    </div>
+
+    <p class="lead">
+        Puntaje: {{puntaje}}
+    </p>
+    
+    <button class="btn btn-primary rounded w-50" (click)="sendScore()">
+        Guardar score
+    </button>
+</div>

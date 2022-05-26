@@ -10,6 +10,7 @@ import { MayorMenorComponent } from './components/page/mayor-menor/mayor-menor.c
 import { PreguntadosComponent } from './components/page/preguntados/preguntados.component';
 import { MugreComponent } from './components/page/mugre/mugre.component';
 import { BienvenidaComponent } from './components/page/bienvenida/bienvenida.component';
+import { Pregunta2Component } from './components/page/pregunta2/pregunta2.component';
 
 const routes: Routes = [
   
@@ -34,7 +35,8 @@ const routes: Routes = [
 
   { path: 'juegos', component: JuegosComponent, children: [
     {path: 'mayor-menor', component: MayorMenorComponent },
-    {path: 'preguntados', component: PreguntadosComponent },
+    // {path: 'preguntados', component: PreguntadosComponent },
+    {path: 'preguntados', component: Pregunta2Component },
     {path: '**', component: NotFoundComponent }
   ] }
 
