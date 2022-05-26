@@ -12,6 +12,12 @@
             </button>
         </div>
     </div>
+    <p class="lead">
+        Puntaje: {{puntaje}}
+    </p>
+    <button class="btn btn-primary rounded w-50" (click)="sendScore()">
+        Guardar score
+    </button>
 </div>
 
 <div
@@ -42,7 +48,7 @@
         <div class="d-flex justify-content-between align-items-center">
             <p *ngSwitchCase="'bien'" class="text-success fw-bold">
                 ¡Bien! <span>({{this.respuesta}}%)</span>
-            </p>    
+            </p>
             <p *ngSwitchCase="'cerca'" class="text-warning">
                 ¡Estuviste cerca! <span>({{this.respuesta}}%)</span>
             </p>

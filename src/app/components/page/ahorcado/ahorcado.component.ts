@@ -72,7 +72,9 @@ export class AhorcadoComponent implements OnInit {
       this.vidas--;
       if (this.vidas === 0) {
         this.juegoTerminado = true;
-        this.puntaje--;
+        if (this.puntaje > 0) {
+          this.puntaje--;
+        }
       }
     }
     else if (this.arrayActual.join("") === this.palabra) {
