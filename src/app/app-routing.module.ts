@@ -38,7 +38,7 @@ const routes: Routes = [
     {path: 'mayor-menor', component: MayorMenorComponent },
     // {path: 'preguntados', component: PreguntadosComponent },
     {path: 'preguntados', component: Pregunta2Component },
-    {path: 'alcohol', component: AlcoholComponent },
+    {path: 'alcoholimetro', component: AlcoholComponent },
     {path: '**', component: NotFoundComponent }
   ] }
 

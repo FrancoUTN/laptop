@@ -16,8 +16,6 @@ export class AlcoholComponent implements OnInit {
   respuesta:number = 0;
   puntaje:number = 0;
 
-  cargando:boolean = false;
-
   constructor(
     private alcoholService:AlcoholService,
     private scoresService:ScoresService) { }
@@ -33,8 +31,6 @@ export class AlcoholComponent implements OnInit {
   }
 
   traerBebidas() {
-    this.cargando = true;
-
     this.alcoholService.getBebidas().subscribe(response => {
       const aux = response.products;
 
@@ -48,7 +44,6 @@ export class AlcoholComponent implements OnInit {
       });
 
       this.renovarBebida();
-      this.cargando = false;
     });
   }
 
@@ -64,7 +59,7 @@ export class AlcoholComponent implements OnInit {
       this.resultado = 'bien';
       this.puntaje += 1;
     }
-    else if (this.guess > aprox - 3 && this.guess < aprox + 3) {
+    else if (this.guess > aprox - 2 && this.guess < aprox + 2) {
       this.resultado = 'cerca';
     }
     else if (this.puntaje > 0) {

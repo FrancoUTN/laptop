@@ -30,7 +30,7 @@
     </button>
     <div [ngSwitch]="resultado" class="d-flex flex-column justify-content-center">
         <div class="d-flex justify-content-between align-items-center">
-            <p *ngSwitchCase="'bien'" class="text-success">
+            <p *ngSwitchCase="'bien'" class="text-success fw-bold">
                 ¡Bien! <span>({{this.respuesta}}%)</span>
             </p>    
             <p *ngSwitchCase="'cerca'" class="text-warning">
