@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MediadorService } from 'src/app/services/mediador.service';
 import { ScoresService } from 'src/app/services/scores.service';
 
 @Component({
@@ -15,8 +14,7 @@ export class MayorMenorComponent implements OnInit {
   halago:string = '';
   halagos:Array<string> = ["Bien!", "Eso!!", "Muy bien!!", "Dale!", "Seguí así!!"];
 
-  constructor(private mediadorService:MediadorService,
-    private scoresService:ScoresService) { }
+  constructor(private scoresService:ScoresService) { }
 
   ngOnInit(): void {
     this.cartaActual = this.getRndCard();

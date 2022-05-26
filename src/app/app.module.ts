@@ -19,7 +19,6 @@ import { JuegosComponent } from './components/page/juegos/juegos.component';
 import { NotFoundComponent } from './components/page/not-found/not-found.component';
 import { PreguntadosComponent } from './components/page/preguntados/preguntados.component';
 import { AhorcadoComponent } from './components/page/ahorcado/ahorcado.component';
-import { ListadoComponent } from './components/page/listado/listado.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MugreComponent } from './components/page/mugre/mugre.component';
 import { BienvenidaComponent } from './components/page/bienvenida/bienvenida.component';
@@ -36,7 +35,6 @@ import { BienvenidaComponent } from './components/page/bienvenida/bienvenida.com
     NotFoundComponent,
     PreguntadosComponent,
     AhorcadoComponent,
-    ListadoComponent,
     MenuComponent,
     MugreComponent,
     BienvenidaComponent

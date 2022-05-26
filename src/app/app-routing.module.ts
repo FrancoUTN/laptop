@@ -8,7 +8,6 @@ import { QuienSoyComponent } from './components/quien-soy/quien-soy.component';
 import { HomeComponent } from './components/home/home.component';
 import { MayorMenorComponent } from './components/page/mayor-menor/mayor-menor.component';
 import { PreguntadosComponent } from './components/page/preguntados/preguntados.component';
-import { ListadoComponent } from './components/page/listado/listado.component';
 import { MugreComponent } from './components/page/mugre/mugre.component';
 import { BienvenidaComponent } from './components/page/bienvenida/bienvenida.component';
 
@@ -18,8 +17,7 @@ const routes: Routes = [
   // { path: 'login', component: LoginComponent },
   // { path: 'registro', component: RegistroComponent },
   // { path: 'quien-soy', component: QuienSoyComponent },
-  // { path: 'home', component: HomeComponent },
-  // { path: 'listado', component: ListadoComponent },
+  // { path: 'home', component: HomeComponent },y
   // { path: 'estadisticas', component: MugreComponent },
   // { path: '**', component: NotFoundComponent },
 
