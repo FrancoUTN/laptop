@@ -17,13 +17,13 @@ import { HomeComponent } from './components/home/home.component';
 import { QuienSoyComponent } from './components/quien-soy/quien-soy.component';
 import { JuegosComponent } from './components/page/juegos/juegos.component';
 import { NotFoundComponent } from './components/page/not-found/not-found.component';
-import { PreguntadosComponent } from './components/page/preguntados/preguntados.component';
 import { AhorcadoComponent } from './components/page/ahorcado/ahorcado.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MugreComponent } from './components/page/mugre/mugre.component';
 import { BienvenidaComponent } from './components/page/bienvenida/bienvenida.component';
 import { Pregunta2Component } from './components/page/pregunta2/pregunta2.component';
 import { AlcoholComponent } from './components/page/alcohol/alcohol.component';
+import { ChatComponent } from './components/page/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -35,13 +35,13 @@ import { AlcoholComponent } from './components/page/alcohol/alcohol.component';
     QuienSoyComponent,
     JuegosComponent,
     NotFoundComponent,
-    PreguntadosComponent,
     AhorcadoComponent,
     MenuComponent,
     MugreComponent,
     BienvenidaComponent,
     Pregunta2Component,
-    AlcoholComponent
+    AlcoholComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

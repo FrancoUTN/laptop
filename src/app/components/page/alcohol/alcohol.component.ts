@@ -15,6 +15,7 @@ export class AlcoholComponent implements OnInit {
   resultado:string = '';
   respuesta:number = 0;
   puntaje:number = 0;
+  fin:boolean = false;
 
   constructor(
     private alcoholService:AlcoholService,
@@ -24,9 +25,20 @@ export class AlcoholComponent implements OnInit {
     this.traerBebidas();
   }
 
-  renovarBebida () {    
+  reiniciar() {
+    this.traerBebidas();
+    this.fin = false;
+  }
+
+  renovarBebida() {
+    if (this.productos.length == 0) {
+      this.producto = null;
+      this.fin = true;
+      return;
+    }
+
     const aleatorio = this.getRndInteger(0, this.productos.length - 1);
-    this.producto = this.productos[aleatorio];
+    this.producto = this.productos.splice(aleatorio, 1)[0];
     console.log(this.producto.nutriments.alcohol);
   }
 

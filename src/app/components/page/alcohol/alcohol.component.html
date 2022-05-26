@@ -1,6 +1,13 @@
 <div *ngIf="!this.producto" class="container d-flex flex-column align-items-center justify-content-around border w-50 p-0" style="height: 75vh;">
     <div class="h-50 w-100 d-flex align-items-center justify-content-center bg-dark bg-gradient">
-        <h2>Por favor, espere...</h2>
+        <h2 *ngIf="!this.fin">Por favor, espere...</h2>
+        <div *ngIf="this.fin">
+            <h2 class="text-light">Se acabó el alcohol.</h2>
+            <p class="text-light text-white-50">¡Qué desgracia!</p>
+            <button class="btn btn-secondary rounded w-50" (click)="reiniciar()">
+                ¿Reiniciar?
+            </button>
+        </div>
     </div>
 </div>
 

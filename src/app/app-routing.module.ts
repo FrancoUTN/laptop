@@ -7,11 +7,11 @@ import { NotFoundComponent } from './components/page/not-found/not-found.compone
 import { QuienSoyComponent } from './components/quien-soy/quien-soy.component';
 import { HomeComponent } from './components/home/home.component';
 import { MayorMenorComponent } from './components/page/mayor-menor/mayor-menor.component';
-import { PreguntadosComponent } from './components/page/preguntados/preguntados.component';
 import { MugreComponent } from './components/page/mugre/mugre.component';
 import { BienvenidaComponent } from './components/page/bienvenida/bienvenida.component';
 import { Pregunta2Component } from './components/page/pregunta2/pregunta2.component';
 import { AlcoholComponent } from './components/page/alcohol/alcohol.component';
+import { ChatComponent } from './components/page/chat/chat.component';
 
 const routes: Routes = [
   
@@ -31,12 +31,12 @@ const routes: Routes = [
     {path: '', component: BienvenidaComponent },
     { path: 'quien-soy', component: QuienSoyComponent },
     { path: 'estadisticas', component: MugreComponent },
+    { path: 'chat', component: ChatComponent },
     {path: '**', component: NotFoundComponent }
   ] },
 
   { path: 'juegos', component: JuegosComponent, children: [
     {path: 'mayor-menor', component: MayorMenorComponent },
-    // {path: 'preguntados', component: PreguntadosComponent },
     {path: 'preguntados', component: Pregunta2Component },
     {path: 'alcoholimetro', component: AlcoholComponent },
     {path: '**', component: NotFoundComponent }
