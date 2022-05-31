@@ -1,18 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
-// import { JuegosComponent } from './components/page/juegos/juegos.component';
 import { NotFoundComponent } from './components/page/not-found/not-found.component';
 import { QuienSoyComponent } from './components/quien-soy/quien-soy.component';
 import { HomeComponent } from './components/home/home.component';
-// import { MayorMenorComponent } from './components/page/mayor-menor/mayor-menor.component';
 import { MugreComponent } from './components/page/mugre/mugre.component';
 import { BienvenidaComponent } from './components/page/bienvenida/bienvenida.component';
-// import { Pregunta2Component } from './components/page/pregunta2/pregunta2.component';
-// import { AlcoholComponent } from './components/page/alcohol/alcohol.component';
 import { ChatComponent } from './components/page/chat/chat.component';
-// import { AhorcadoComponent } from './components/page/ahorcado/ahorcado.component';
+import { SharedModule } from './shared/shared.module';
 
 const routes: Routes = [  
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -20,20 +17,13 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
 
   { path: 'page', component: HomeComponent, children: [
-    {path: 'home', component: BienvenidaComponent },
+    { path: 'home', component: BienvenidaComponent },
     { path: 'quien-soy', component: QuienSoyComponent },
     { path: 'estadisticas', component: MugreComponent },
     { path: 'chat', component: ChatComponent },
-    {path: '**', component: NotFoundComponent }
+    { path: '**', component: NotFoundComponent }
   ] },
 
-  // { path: 'juegos', component: JuegosComponent, children: [
-  //   {path: 'ahorcado', component: AhorcadoComponent },
-  //   {path: 'mayor-menor', component: MayorMenorComponent },
-  //   {path: 'preguntados', component: Pregunta2Component },
-  //   {path: 'alcoholimetro', component: AlcoholComponent },
-  //   {path: '**', component: NotFoundComponent }
-  // ] },
   { path: 'juegos', loadChildren: () => import('./components/page/juegos/juegos.module').then(m => m.JuegosModule) },
 
   {path: '**', component: NotFoundComponent }
@@ -41,7 +31,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+    SharedModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

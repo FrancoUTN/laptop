@@ -9,7 +9,7 @@ import { MayorMenorComponent } from '../mayor-menor/mayor-menor.component';
 import { Pregunta2Component } from '../pregunta2/pregunta2.component';
 import { AlcoholComponent } from '../alcohol/alcohol.component';
 import { NotFoundComponent } from '../not-found/not-found.component';
-import { MenuComponent } from '../../menu/menu.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 const routes: Routes = [
   { path: '', component: JuegosComponent, children: [
@@ -27,14 +27,13 @@ const routes: Routes = [
     AhorcadoComponent,
     MayorMenorComponent,
     Pregunta2Component,
-    AlcoholComponent,
-    NotFoundComponent,
-    MenuComponent
+    AlcoholComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    SharedModule
   ],
   exports: []
 })
