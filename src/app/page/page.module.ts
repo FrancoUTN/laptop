@@ -11,6 +11,7 @@ import { NotFoundComponent } from '../components/page/not-found/not-found.compon
 import { QuienSoyComponent } from '../components/quien-soy/quien-soy.component';
 import { SharedModule } from '../shared/shared.module';
 import { MenuComponent } from '../components/menu/menu.component';
+import { AdminGuard } from '../auth/admin.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, children: [

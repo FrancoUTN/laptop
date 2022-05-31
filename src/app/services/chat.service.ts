@@ -21,20 +21,12 @@ export class ChatService {
       this.coleccion = firestore.collection('mensajes');
 
       this.authenticationService.getAuthState().subscribe(
-        (codigo) => {
-          if (codigo) {
-            if (codigo.email) {
-              this.email = codigo.email;
-              this.uid = codigo.uid;
-            }
-            else {
-              console.log("El usuario no tiene email.");
-            }
+        (usuario) => {
+          if (usuario && usuario.email) {
+              this.email = usuario.email;
+              this.uid = usuario.uid;
           }
-          else {
-            console.log("No hay usuario.");
-          }
-        } 
+        }
       );
   }
 
