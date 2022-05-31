@@ -21,10 +21,9 @@ const routes: Routes = [
     { path: 'quien-soy', component: QuienSoyComponent },
     { path: 'estadisticas', component: MugreComponent },
     { path: 'chat', component: ChatComponent },
+    { path: 'juegos', loadChildren: () => import('./components/page/juegos/juegos.module').then(m => m.JuegosModule) },
     { path: '**', component: NotFoundComponent }
   ] },
-
-  { path: 'juegos', loadChildren: () => import('./components/page/juegos/juegos.module').then(m => m.JuegosModule) },
 
   {path: '**', component: NotFoundComponent }
 

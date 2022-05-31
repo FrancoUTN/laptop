@@ -20,6 +20,7 @@ import { MugreComponent } from './components/page/mugre/mugre.component';
 import { BienvenidaComponent } from './components/page/bienvenida/bienvenida.component';
 import { ChatComponent } from './components/page/chat/chat.component';
 import { SharedModule } from './shared/shared.module';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SharedModule } from './shared/shared.module';
     QuienSoyComponent,
     MugreComponent,
     BienvenidaComponent,
-    ChatComponent
+    ChatComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
