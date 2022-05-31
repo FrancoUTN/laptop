@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   
   signIn(value:User) {
     this.authenticationService.SignIn(value.email, value.password)
-      .then(() => this.router.navigateByUrl('home'))
+      .then(() => this.router.navigateByUrl('page/home'))
       .catch(razon => console.log(razon));
   }
 
