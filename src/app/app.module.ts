@@ -12,27 +12,13 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
-import { HomeComponent } from './components/home/home.component';
-import { QuienSoyComponent } from './components/quien-soy/quien-soy.component';
-// import { NotFoundComponent } from './components/page/not-found/not-found.component';
-// import { MenuComponent } from './components/menu/menu.component';
-import { MugreComponent } from './components/page/mugre/mugre.component';
-import { BienvenidaComponent } from './components/page/bienvenida/bienvenida.component';
-import { ChatComponent } from './components/page/chat/chat.component';
 import { SharedModule } from './shared/shared.module';
-import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistroComponent,
-    HomeComponent,
-    QuienSoyComponent,
-    MugreComponent,
-    BienvenidaComponent,
-    ChatComponent,
-    MenuComponent
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

@@ -34,7 +34,6 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forChild(routes),
     SharedModule
-  ],
-  exports: []
+  ]
 })
 export class JuegosModule { }
