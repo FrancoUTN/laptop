@@ -15,17 +15,9 @@ export class MenuComponent implements OnInit {
     private router: Router,
     private authenticationService:AuthenticationService) {
       this.authenticationService.getAuthState().subscribe(
-        (codigo) => {
-          if (codigo) {
-            if (codigo.email) {
-              this.email = codigo.email;
-            }
-            else {
-              console.log("El usuario no tiene email.");
-            }
-          }
-          else {
-            console.log("No hay usuario.");
+        (usuario) => {
+          if (usuario && usuario.email) {
+              this.email = usuario.email;
           }
         }
       );

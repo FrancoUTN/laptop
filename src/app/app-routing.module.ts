@@ -5,13 +5,14 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { NotFoundComponent } from './components/page/not-found/not-found.component';
 import { SharedModule } from './shared/shared.module';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [  
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
 
-  { path: 'page', loadChildren: () => import('./page/page.module').then(m => m.PageModule) },
+  { path: 'page', canActivate: [AuthGuard], loadChildren: () => import('./page/page.module').then(m => m.PageModule) },
 
   {path: '**', component: NotFoundComponent }
 
