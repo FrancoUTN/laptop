@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+          <div formGroupName="userData">
+            <div class="form-group">
+              <label for="username">Nombre y apellido</label>
+              <input
+                type="text"
+                id="username"
+                formControlName="username"
+                class="form-control"
+                required>
+              <span
+                *ngIf="!signupForm.get('userData.username')?.valid && signupForm.get('userData.username')?.touched"
+                class="help-block">
+                Nombre y/o apellido inválido(s)
+              </span>
+
+              <span
+                *ngIf="username?.errors?.['required']"
+                class="help-block">
+                Nombre y/o apellido inválido(s)
+              </span>
+              <span
+                *ngIf="signupForm.controls['gender'].errors?.['required']"
+                class="help-block">
+                Nombre y/o apellido inválido(s)
+              </span>
+
+            </div>
+            <div class="form-group">
+              <label for="edad">Edad (18-99 años)</label>
+              <input
+                type="number"
+                id="edad"
+                formControlName="edad"
+                class="form-control">
+              <span
+                *ngIf="!signupForm.get('userData.edad')?.valid && signupForm.get('userData.edad')?.touched"
+                class="help-block">Edad inválida</span>
+            </div>
+            <div class="form-group">
+              <label for="tel">Número de teléfono</label>
+              <input
+                type="number"
+                id="tel"
+                formControlName="tel"
+                class="form-control">
+              <span
+                *ngIf="!signupForm.get('userData.tel')?.valid && signupForm.get('userData.tel')?.touched"
+                class="help-block">Número de teléfono inválido</span>
+
+                <span
+                  *ngIf="signupForm.get('userData.tel')?.errors?.['min']"
+                  class="help-block">
+                  Número de teléfono
+                </span>
+
+            </div>
+          </div>
+          <div class="radio" *ngFor="let gender of genders">
+            <label>
+              <input
+                type="radio"
+                formControlName="gender"
+                [value]="gender">{{ gender }}
+            </label>
+          </div>
+          <span
+            *ngIf="!signupForm.valid && signupForm.touched"
+            class="help-block">Please enter valid data!</span>
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
