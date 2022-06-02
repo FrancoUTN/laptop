@@ -14,13 +14,15 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { SharedModule } from './shared/shared.module';
 import { EncuestaComponent } from './components/page/encuesta/encuesta.component';
+import { RespuestasComponent } from './components/page/respuestas/respuestas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistroComponent,
-    EncuestaComponent
+    EncuestaComponent,
+    RespuestasComponent
   ],
   imports: [
     BrowserModule,

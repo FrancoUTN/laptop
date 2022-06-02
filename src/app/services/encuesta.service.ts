@@ -5,7 +5,7 @@ import { AuthenticationService } from './authentication.service';
 @Injectable({
   providedIn: 'root'
 })
-export class ChatService {
+export class EncuestaService {
 
   coleccion:AngularFirestoreCollection<any>;
   documento:AngularFirestoreDocument<any> | undefined;
@@ -17,7 +17,7 @@ export class ChatService {
     firestore: AngularFirestore,
     private authenticationService:AuthenticationService) {
 
-      this.coleccion = firestore.collection('mensajes');
+      this.coleccion = firestore.collection('respuestas');
 
       this.authenticationService.getAuthState().subscribe(
         (usuario) => {
@@ -29,21 +29,25 @@ export class ChatService {
       );
   }
 
-  agregarMensaje(text:string) {
-    const mensaje = {
+  agregarRespuesta(respuesta:any) {
+    const rta = {
       uid: this.uid,
       email: this.email,
-      texto: text,
-      hora: Date()
+      nombre: respuesta.userData.nombre,
+      apellido: respuesta.userData.apellido,
+      edad: respuesta.userData.edad,
+      telefono: respuesta.userData.tel,
+      juego: respuesta.gameData.juego,
+      seDivirtio: respuesta.gameData.meGusta,
+      comentario: respuesta.gameData.comentario,
     }
 
-    this.coleccion.add(mensaje);
+    this.coleccion.add(rta);
 
-    return mensaje;
+    return rta;
   }
 
   retornarColeccion () {
     return this.coleccion;
   }
-
 }

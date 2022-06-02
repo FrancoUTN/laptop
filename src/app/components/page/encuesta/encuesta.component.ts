@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { EncuestaService } from 'src/app/services/encuesta.service';
 
 @Component({
   selector: 'app-encuesta',
@@ -15,7 +16,7 @@ export class EncuestaComponent implements OnInit {
   ];
   encuestaForm: FormGroup | any;
 
-  constructor() { }
+  constructor(private encuestaService:EncuestaService) { }
 
   ngOnInit() {
     this.encuestaForm = new FormGroup({
@@ -27,7 +28,7 @@ export class EncuestaComponent implements OnInit {
       }),
       'gameData': new FormGroup({
         'juego': new FormControl(null, [Validators.required]),
-        'meGusta': new FormControl(false),
+        'meGusta': new FormControl(false), // Igual guarda null
         'comentario': new FormControl(null, [Validators.required])
       })
     });
@@ -44,6 +45,7 @@ export class EncuestaComponent implements OnInit {
 
   onSubmit() {
     console.log(this.encuestaForm.value);
+    this.encuestaService.agregarRespuesta(this.encuestaForm.value);
     this.encuestaForm.reset();
   }
 }

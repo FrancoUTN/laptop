@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <table class="table text-white" style="text-align: center;">
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+                <th>Teléfono</th>
+                <th>Juego</th>
+                <th>¿Se divirtió?</th>
+                <th>Comentario</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of respuestas">
+                <td>{{item.email}}</td>
+                <td>{{item.nombre}}</td>
+                <td>{{item.apellido}}</td>
+                <td>{{item.edad}}</td>
+                <td>{{item.telefono}}</td>
+                <td>{{item.juego}}</td>
+                <td *ngIf="item.seDivirtio">¡¡ Sí !!</td>
+                <td *ngIf="!item.seDivirtio">No.</td>
+                <td style="max-width: 15rem;">{{item.comentario}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

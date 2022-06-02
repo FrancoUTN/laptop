@@ -12,6 +12,7 @@ import { QuienSoyComponent } from '../components/quien-soy/quien-soy.component';
 import { SharedModule } from '../shared/shared.module';
 import { MenuComponent } from '../components/menu/menu.component';
 import { EncuestaComponent } from '../components/page/encuesta/encuesta.component';
+import { RespuestasComponent } from '../components/page/respuestas/respuestas.component';
 
 import { AdminGuard } from '../auth/admin.guard';
 
@@ -23,7 +24,7 @@ const routes: Routes = [
     { path: 'chat', component: ChatComponent },
     { path: 'juegos', loadChildren: () => import('../components/page/juegos/juegos.module').then(m => m.JuegosModule) },
     { path: 'encuesta', component: EncuestaComponent },
-    // { path: 'respuestas', component: },
+    { path: 'respuestas', component: RespuestasComponent}, // CanActivate
     { path: '**', component: NotFoundComponent }
   ] },
 ];
