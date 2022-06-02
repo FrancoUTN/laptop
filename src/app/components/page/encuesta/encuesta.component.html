@@ -1,78 +1,115 @@
-<div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-          <div formGroupName="userData">
-            <div class="form-group">
-              <label for="username">Nombre y apellido</label>
-              <input
-                type="text"
-                id="username"
-                formControlName="username"
-                class="form-control"
-                required>
-              <span
-                *ngIf="!signupForm.get('userData.username')?.valid && signupForm.get('userData.username')?.touched"
-                class="help-block">
-                Nombre y/o apellido inválido(s)
-              </span>
-
-              <span
-                *ngIf="username?.errors?.['required']"
-                class="help-block">
-                Nombre y/o apellido inválido(s)
-              </span>
-              <span
-                *ngIf="signupForm.controls['gender'].errors?.['required']"
-                class="help-block">
-                Nombre y/o apellido inválido(s)
-              </span>
-
-            </div>
-            <div class="form-group">
-              <label for="edad">Edad (18-99 años)</label>
-              <input
-                type="number"
-                id="edad"
-                formControlName="edad"
-                class="form-control">
-              <span
-                *ngIf="!signupForm.get('userData.edad')?.valid && signupForm.get('userData.edad')?.touched"
-                class="help-block">Edad inválida</span>
-            </div>
-            <div class="form-group">
-              <label for="tel">Número de teléfono</label>
-              <input
-                type="number"
-                id="tel"
-                formControlName="tel"
-                class="form-control">
-              <span
-                *ngIf="!signupForm.get('userData.tel')?.valid && signupForm.get('userData.tel')?.touched"
-                class="help-block">Número de teléfono inválido</span>
-
-                <span
-                  *ngIf="signupForm.get('userData.tel')?.errors?.['min']"
-                  class="help-block">
-                  Número de teléfono
-                </span>
-
-            </div>
+<div style="width: 30rem; padding: 2rem 3rem">
+  <h2>Encuesta</h2>
+  <form [formGroup]="encuestaForm" (ngSubmit)="onSubmit()">
+    <div class="form-group" formGroupName="userData">
+      <div class="d-flex">
+        <div style="margin-right: 2rem;">
+          <label for="nombre">
+            Nombre
+          </label>
+          <input
+            type="text"
+            id="nombre"
+            formControlName="nombre"
+            class="form-control"
+            required
+          >
+          <div style="height: 2rem;">
+            <span
+              *ngIf="!nombre?.valid && nombre?.touched"
+              class="help-block text-danger"
+            >
+              Nombre inválido
+            </span>
           </div>
-          <div class="radio" *ngFor="let gender of genders">
-            <label>
-              <input
-                type="radio"
-                formControlName="gender"
-                [value]="gender">{{ gender }}
-            </label>
+        </div>
+        <div>
+          <label for="apellido">
+            Apellido
+          </label>
+          <input
+            type="text"
+            id="apellido"
+            formControlName="apellido"
+            class="form-control"
+            required
+          >
+          <div style="height: 2rem;">
+            <span
+              *ngIf="!apellido?.valid && apellido?.touched"
+              class="help-block text-danger"
+            >
+              Apellido inválido
+            </span>
           </div>
-          <span
-            *ngIf="!signupForm.valid && signupForm.touched"
-            class="help-block">Please enter valid data!</span>
-          <button class="btn btn-primary" type="submit">Submit</button>
-        </form>
+        </div>
+      </div>
+      <div class="d-flex">
+        <div style="margin-right: 2rem;">
+          <label for="edad">
+            Edad (18-99 años)
+          </label>
+          <input
+            type="number"
+            id="edad"
+            formControlName="edad"
+            class="form-control w-75"
+            required
+          >
+          <div style="height: 2rem;">
+            <span
+              *ngIf="!edad?.valid && edad?.touched"
+              class="help-block text-danger">
+                Edad inválida
+            </span>
+          </div>
+        </div>
+        <div>
+          <label for="tel">
+            Número de teléfono
+          </label>
+          <input
+            type="number"
+            id="tel"
+            formControlName="tel"
+            class="form-control"
+            required
+          >
+          <div style="height: 2rem;">
+            <span
+              *ngIf="!tel?.valid && tel?.touched"
+              class="help-block text-danger">
+                Número de teléfono inválido
+            </span>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  
+    <div class="form-group" formGroupName="gameData">
+      <div class="d-flex">
+        <div style="margin-right: 2rem;">
+            <div class="radio" *ngFor="let juego of juegos">
+              <label>
+                <input
+                  type="radio"
+                  formControlName="juego"
+                  [value]="juego"
+                >
+                  {{ juego }}
+              </label>
+            </div>
+        </div>
+      </div>      
+    </div>
+    
+    <div style="height: 2rem;">
+      <span
+      *ngIf="!encuestaForm.valid && encuestaForm.touched"
+        class="help-block text-danger">
+          Encuesta inválida
+      </span>
+    </div>
+    
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
+</div>
