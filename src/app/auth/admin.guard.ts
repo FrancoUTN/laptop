@@ -27,7 +27,7 @@ import {
       return this.authService.getAuthState().pipe(
         take(1),
         map(user => {
-          if (user && user.uid === 'mp49JR87kvgHLcOv2olOf4KTbtA2')
+          if (user && user.uid === 'PKFu1Rco3qeHaACBbZJc8Jy7IHh1') // Administrador
             return true;
   
           return this.router.createUrlTree(['page/home']);

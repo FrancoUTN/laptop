@@ -32,4 +32,8 @@ export class LoginComponent implements OnInit {
     this.atrPassword = '123456';
   }
 
+  rellenarAdmin() {
+    this.atrEmail = 'administrador@valido.com';
+    this.atrPassword = '123456';
+  }
 }

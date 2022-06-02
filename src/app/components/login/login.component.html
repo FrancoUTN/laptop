@@ -31,9 +31,10 @@
                   <label class="form-label">Contraseña</label>
                 </div>
 
-                <p class="small mb-5 pb-lg-2">
-                  <button type="button" class="btn btn-secondary" (click)="rellenar()">Acceso rápido</button>
-                </p>
+                <div class="d-flex flex-column align-items-center">
+                  <button type="button" class="btn btn-secondary mb-4" (click)="rellenar()">Acceso rápido</button>
+                  <button type="button" class="btn btn-outline-secondary mb-5" (click)="rellenarAdmin()">Acceso admin.</button>
+                </div>
 
                 <button class="btn btn-outline-light btn-lg px-5" type="submit">Ingresar</button>            
               </form>

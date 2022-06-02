@@ -24,7 +24,7 @@ const routes: Routes = [
     { path: 'chat', component: ChatComponent },
     { path: 'juegos', loadChildren: () => import('../components/page/juegos/juegos.module').then(m => m.JuegosModule) },
     { path: 'encuesta', component: EncuestaComponent },
-    { path: 'respuestas', component: RespuestasComponent}, // CanActivate
+    { path: 'respuestas', canActivate: [AdminGuard], component: RespuestasComponent},
     { path: '**', component: NotFoundComponent }
   ] },
 ];
