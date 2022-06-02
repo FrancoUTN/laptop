@@ -1,17 +1,22 @@
 <!-- Corregir mal uso del Sizing de Bootstrap -->
 
-<div class="container d-flex flex-column align-items-center" style="height: 70vh;">
+<!-- <div class="container d-flex flex-column align-items-center" style="height: 70vh; width: 50vw;"> -->
+<div class="container px-5 py-3 d-flex flex-column align-items-center">
     <div
-        class="h-75 w-25 border border-dark border-3 rounded d-flex justify-content-center align-items-center"
-        style="background-image: linear-gradient(orange, #ffcd00);"
+        class="d-flex justify-content-center align-items-center"
+        style="
+        background-image: linear-gradient(orange, white, orange);
+        height: 30rem;
+        width: 20rem;
+        border-radius: 1.2rem;"
     >
         <p class="text-dark fs-1">
             {{this.cartaActual}}
         </p>
     </div>
-    <div class="h-25 w-25 d-flex flex-column justify-content-center">
+    <div class="h-25 w-75 my-2 d-flex flex-column justify-content-center">
         <div class="d-flex justify-content-between align-items-center">
-            <p class="fs-3">
+            <p class="fs-4">
                 Puntaje: {{this.puntaje}}
             </p>
             <p class="text-danger" *ngIf="this.puntaje == 0 && !this.recienEmpieza">
@@ -22,18 +27,18 @@
             </p>
         </div>
     </div>
-    <div class="h-25 w-25 d-flex flex-column justify-content-around align-items-center">
+    <div class="h-25 w-75 d-flex flex-column justify-content-around align-items-center">
         <p>
             La siguiente carta será...
         </p>
-        <button class="btn-primary border rounded h-25 w-50" (click)="onMayorClick()">
+        <button class="btn btn-primary rounded mb-3" style="width: 15rem; height: 3rem" (click)="onMayorClick()">
             Mayor
         </button>
-        <button class="btn-secondary border rounded h-25 w-50" (click)="onMenorClick()">
+        <button class="btn btn-secondary rounded" style="width: 15rem; height: 3rem" (click)="onMenorClick()">
             Menor
         </button>
-        <button class="btn-info border rounded h-25 w-50" (click)="sendScore()">
-            Guardar score
+        <button class="btn btn-outline-light rounded mt-5" style="width: 10rem; height: 2.5rem" (click)="sendScore()">
+            Guardar resultado
         </button>
     </div>
 </div>

@@ -1,28 +1,34 @@
-<div class="container d-flex flex-column align-items-center justify-content-around border w-50 p-0" style="height: 75vh;">
+<!-- <div class="container d-flex flex-column align-items-center justify-content-around border w-50 p-0" style="height: 75vh;"> -->
+<div class="container px-5 py-3 d-flex flex-column justify-content-around align-items-center w-100">
 
     <h2>¿Qué trago es?</h2>
 
-    <div class="h-50 w-100 d-flex align-items-center justify-content-center bg-light bg-gradient">
-        <img src="{{imagen}}" alt="Cocktail" class="mh-100 mw-100">
+    <!-- <div class="h-50 w-100 d-flex align-items-center justify-content-center bg-light bg-gradient"> -->
+    <div class="d-flex align-items-center justify-content-center my-3"
+        style="width: 20rem; height: 20rem;"
+    >
+        <img src="{{imagen}}" alt="Cocktail" class="h-100 w-100">
     </div>
 
-    <div class="d-flex flex-column justify-content-around h-25 w-75">
-        <button class="btn btn-outline-primary rounded w-100" *ngFor="let respuesta of respuestas" (click)="onRtaClick(respuesta)">
+    <div class="d-flex flex-column justify-content-around h-25 w-100">
+        <button class="btn btn-primary rounded w-100 my-1" *ngFor="let respuesta of respuestas" (click)="onRtaClick(respuesta)">
             {{respuesta}}
         </button>
     </div>
 
-    <p *ngIf="this.adivino" class="text-success">
-        ¡Correcto!
-    </p>    
-    <p *ngIf="!this.adivino && !this.recienEmpieza" class="text-danger">
-        Incorrecto
-    </p>
+    <div style="height: 1rem; margin: 1rem 0;">
+        <p *ngIf="this.adivino" class="text-success">
+            ¡Correcto!
+        </p>
+        <p *ngIf="!this.adivino && !this.recienEmpieza" class="text-danger">
+            Incorrecto
+        </p>
+    </div>
 
     <p class="lead">
         Puntaje: {{puntaje}}
     </p>    
-    <button class="btn btn-primary rounded w-50" (click)="sendScore()">
-        Guardar score
+    <button class="btn btn-outline-primary rounded w-50" (click)="sendScore()">
+        Guardar resultado
     </button>
 </div>
