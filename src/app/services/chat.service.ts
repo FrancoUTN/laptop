@@ -6,18 +6,16 @@ import { AuthenticationService } from './authentication.service';
   providedIn: 'root'
 })
 export class ChatService {
-
   coleccion:AngularFirestoreCollection<any>;
   documento:AngularFirestoreDocument<any> | undefined;
-
   email:string = '';
   uid:string = '';
   
   constructor(
     firestore: AngularFirestore,
     private authenticationService:AuthenticationService) {
-
-      this.coleccion = firestore.collection('mensajes');
+      // this.coleccion = firestore.collection('mensajes');
+      this.coleccion = firestore.collection('mensajes', ref => ref.orderBy("hora"));
 
       this.authenticationService.getAuthState().subscribe(
         (usuario) => {
@@ -45,5 +43,4 @@ export class ChatService {
   retornarColeccion () {
     return this.coleccion;
   }
-
 }

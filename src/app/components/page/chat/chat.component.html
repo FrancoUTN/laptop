@@ -9,12 +9,7 @@
     <h1 style="align-self: flex-start; color: azure; margin: .5em;">
         Sala de chat
     </h1>
-    <div style="
-        overflow: auto;
-    ">
-        <div *ngIf="cargando" class="spinner-border text-secondary" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
+    <div style="overflow: auto;">
         <div
             *ngFor="let mensaje of mensajes"
             class="bg-dark"

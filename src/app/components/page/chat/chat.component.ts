@@ -7,22 +7,17 @@ import { ChatService } from 'src/app/services/chat.service';
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
-
   texto:string = '';
-  auxMensajes:Array<any> = [];
   mensajes:Array<any> = [];
-  cargando:boolean = false;
 
   constructor(private chatService:ChatService) { }
 
   ngOnInit(): void {
-    this.traerMensajes();
+    this.subscribirACambios();
   }
 
   enviar() {
-    const mensaje = this.chatService.agregarMensaje(this.texto)
-
-    this.mensajes.push(mensaje);
+    this.chatService.agregarMensaje(this.texto);
   }
 
   teclaApretada(event:any) {
@@ -32,20 +27,15 @@ export class ChatComponent implements OnInit {
     }
   }
 
-  traerMensajes() {
-    this.mensajes = [];
-    this.cargando = true;
+  subscribirACambios() {
+    this.chatService.retornarColeccion().valueChanges().subscribe(
+      mjes => {
+        this.mensajes = [];
 
-    this.chatService.retornarColeccion().get().subscribe(
-      qs => {
-        qs.forEach(
-          doc => this.mensajes.push({...doc.data()})
-        )
-        
-        this.cargando = false;
+        mjes.forEach(
+          obj => this.mensajes.push(obj)
+        );
       }
     );
-
   }
-    
 }
