@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { EncuestaService } from 'src/app/services/encuesta.service';
 
 @Component({
@@ -21,15 +21,15 @@ export class EncuestaComponent implements OnInit {
   ngOnInit() {
     this.encuestaForm = new FormGroup({
       'userData': new FormGroup({
-        'nombre': new FormControl(null, [Validators.required]),
-        'apellido': new FormControl(null, [Validators.required]),
+        'nombre': new FormControl(null, [Validators.required, this.emptyValidator]),
+        'apellido': new FormControl(null, [Validators.required, this.emptyValidator]),
         'edad': new FormControl(null, [Validators.required, Validators.min(18), Validators.max(99)]),
         'tel': new FormControl(null, [Validators.required, Validators.max(9999999999)])
       }),
       'gameData': new FormGroup({
         'juego': new FormControl(null, [Validators.required]),
         'meGusta': new FormControl(false), // Igual guarda null
-        'comentario': new FormControl(null, [Validators.required])
+        'comentario': new FormControl(null, [Validators.required, this.emptyValidator])
       })
     });
   }
@@ -42,6 +42,18 @@ export class EncuestaComponent implements OnInit {
   get juego() { return this.encuestaForm.get('gameData.juego'); }
   get meGusta() { return this.encuestaForm.get('gameData.meGusta'); }
   get comentario() { return this.encuestaForm.get('gameData.comentario'); }
+  
+  emptyValidator(control: AbstractControl): object | null {
+    const valor = control.value;
+
+    if (valor) {
+      if (valor.trim().length === 0) {
+        return { emptyField: true};
+      };
+    };
+
+    return null;
+  }
 
   onSubmit() {
     console.log(this.encuestaForm.value);
