@@ -1,4 +1,4 @@
-<div class="container d-flex flex-column justify-content-center align-items-center my-5 w-75">
+<div class="container d-flex flex-column justify-content-center align-items-center my-5" style="width: 50rem;">
     <h1>Juego del ahorcado</h1>
 
     <div class="d-flex m-5">
@@ -29,7 +29,7 @@
     </div>
     <div class="row w-50 justify-content-center" *ngIf="!this.juegoTerminado">
         <div
-            class="col-1 m-1"
+            class="col-1 p-2" style="width:3rem;"
             *ngFor="let caracter of this.letras"
         >
             <button *ngIf="caracter" class="btn btn-primary" (click)="onTeclaClick(caracter)">
@@ -39,7 +39,7 @@
     </div>
 
     <div class="m-4">
-        <button *ngIf="this.juegoTerminado" class="btn btn-outline-primary" (click)="reiniciar()">
+        <button *ngIf="this.juegoTerminado" class="btn btn-primary" (click)="reiniciar()">
             ¿Reiniciar?
         </button>
     </div>
@@ -47,7 +47,7 @@
     <p class="">
         Puntaje: {{puntaje}}
     </p>
-    <button class="btn btn-primary rounded w-25" (click)="sendScore()">
-        Guardar score
+    <button class="btn btn-outline-primary w-25" (click)="sendScore()">
+        Guardar resultado
     </button>
 </div>

@@ -29,6 +29,7 @@ export class AlcoholComponent implements OnInit {
     this.traerBebidas();
     this.fin = false;
     this.resultado = '';
+    this.puntaje = 0;
   }
 
   renovarBebida() {
