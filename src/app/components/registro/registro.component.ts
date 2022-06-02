@@ -10,6 +10,7 @@ import { User } from 'src/app/models/User';
   styleUrls: ['./registro.component.scss']
 })
 export class RegistroComponent implements OnInit {
+  error:string = '';
 
   constructor(
     private router: Router,
@@ -22,7 +23,7 @@ export class RegistroComponent implements OnInit {
   signUp(value:User) {
     this.authenticationService.SignUp(value.email, value.password)
       .then(() => this.router.navigateByUrl('page/home'))
-      .catch(razon => console.log(razon));
+      .catch(razon => this.error = razon.message);
   }
   
 }

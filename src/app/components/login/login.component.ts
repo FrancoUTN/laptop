@@ -10,7 +10,7 @@ import { User } from 'src/app/models/User';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  error:string = '';
   atrEmail:string = '';
   atrPassword:string = '';
 
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   signIn(value:User) {
     this.authenticationService.SignIn(value.email, value.password)
       .then(() => this.router.navigateByUrl('page/home'))
-      .catch(razon => console.log(razon));
+      .catch(razon => this.error = razon.message);
   }
 
   rellenar() {
