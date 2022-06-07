@@ -8,14 +8,15 @@ import { SharedModule } from './shared/shared.module';
 import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [  
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'page', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
-
-  { path: 'page', canActivate: [AuthGuard], loadChildren: () => import('./page/page.module').then(m => m.PageModule) },
-
-  {path: '**', component: NotFoundComponent }
-
+  {
+    path: 'page',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./page/page.module').then(m => m.PageModule)
+  },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({

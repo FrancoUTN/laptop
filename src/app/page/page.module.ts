@@ -18,6 +18,7 @@ import { AdminGuard } from '../auth/admin.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, children: [
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: BienvenidaComponent },
     { path: 'quien-soy', component: QuienSoyComponent },
     { path: 'estadisticas', component: MugreComponent },
