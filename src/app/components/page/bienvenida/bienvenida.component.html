@@ -1,3 +1,6 @@
-<div class="container">
+<div *ngIf="!this.isMobile" class="container">
     <h1>¡Bienvenido a la Sala de Juegos!</h1>
+</div>
+<div *ngIf="this.isMobile" class="container">
+    <h1>¡Bienvenidx a la Sala de Juegos!</h1>
 </div>
