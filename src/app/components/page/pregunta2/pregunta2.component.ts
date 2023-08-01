@@ -9,13 +9,14 @@ import { ScoresService } from 'src/app/services/scores.service';
   styleUrls: ['./pregunta2.component.scss']
 })
 export class Pregunta2Component implements OnInit {
-
   respuestas:Array<string> = [];
   imagen:string = '';
   correcta:string = '';
   puntaje:number = 0;
   adivino:boolean = false;
   recienEmpieza:boolean = true;
+  firstImageIsLoading:boolean = true;
+  imageIsLoading:boolean = true;
 
   constructor(
     private pregunta2Service:Pregunta2Service,
@@ -27,6 +28,7 @@ export class Pregunta2Component implements OnInit {
 
   generar () {
     this.respuestas = [];
+    this.imageIsLoading = true;
 
     const aleatorio = this.getRndInteger(0, 3);
 
@@ -45,6 +47,13 @@ export class Pregunta2Component implements OnInit {
         }
       });
     }
+  }
+
+  setImageLoaded() {
+    if (this.firstImageIsLoading) {
+      this.firstImageIsLoading = false;
+    }
+    this.imageIsLoading = false;
   }
 
   getRndInteger(min: number, max: number) {
