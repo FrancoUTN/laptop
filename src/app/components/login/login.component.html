@@ -38,12 +38,21 @@
 
                 <button class="btn btn-outline-light btn-lg px-5" type="submit">Ingresar</button>            
               </form>
-              <div style="height: 2rem; margin-top: 1rem;">
-                <span
-                  *ngIf="error"
-                  class="help-block text-danger">
-                    {{error}}
-                </span>
+              <div class="d-flex flex-column align-items-center mt-5" style="height: 3rem;">
+                  <div>
+                      <span
+                      *ngIf="error"
+                      class="help-block text-danger">
+                          {{error}}
+                      </span>
+                  </div>
+                  <div
+                      *ngIf="authIsLoading"
+                      class="spinner-border text-light"
+                      role="status"
+                  >
+                      <span class="visually-hidden">Loading...</span>
+                  </div>
               </div>
             </div>
             <div>

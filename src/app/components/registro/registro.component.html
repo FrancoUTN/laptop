@@ -4,7 +4,7 @@
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card bg-dark text-white" style="border-radius: 1rem;">
           <div class="card-body p-5 text-center">
-            <div class="mb-md-5 mt-md-4 pb-5">
+            <div class="mb-md-5 mt-md-4 pb-3">
               <form #f="ngForm" (ngSubmit)="signUp(f.value)" novalidate>
                 <h2 class="fw-bold mb-2 text-uppercase">Registro</h2>
                 <p class="text-white-50 mb-5">Ingresa tus datos</p>
@@ -21,12 +21,21 @@
 
                 <button class="btn btn-outline-light btn-lg px-5" type="submit">Enviar</button>
               </form>
-              <div style="height: 2rem; margin-top: 1rem;">
-                <span
-                  *ngIf="error"
-                  class="help-block text-danger">
-                    {{error}}
-                </span>
+              <div class="d-flex flex-column align-items-center mt-5" style="height: 2rem;">
+                  <div>
+                      <span
+                      *ngIf="error"
+                      class="help-block text-danger">
+                          {{error}}
+                      </span>
+                  </div>
+                  <div
+                      *ngIf="authIsLoading"
+                      class="spinner-border text-light"
+                      role="status"
+                  >
+                      <span class="visually-hidden">Loading...</span>
+                  </div>
               </div>
             </div>
             <div>

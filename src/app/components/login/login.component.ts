@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../../services/authentication.service';
-import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
+import { Router } from "@angular/router";
+
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { ErrorService } from 'src/app/services/error.service';
 import { User } from 'src/app/models/User';
 
 @Component({
@@ -13,18 +15,25 @@ export class LoginComponent implements OnInit {
   error:string = '';
   atrEmail:string = '';
   atrPassword:string = '';
+  authIsLoading: boolean = false;
 
   constructor(    
     private router: Router,
-    private authenticationService:AuthenticationService) { }
+    private authenticationService: AuthenticationService,
+    private errorService: ErrorService) { }
 
   ngOnInit(): void {
   }
   
   signIn(value:User) {
+    this.error = "";
+    this.authIsLoading = true;
     this.authenticationService.SignIn(value.email, value.password)
       .then(() => this.router.navigateByUrl('page/home'))
-      .catch(razon => this.error = razon.message);
+      .catch(e => {
+        this.authIsLoading = false;
+        this.error = this.errorService.getFirebaseErrorMsg(e);
+      });
   }
 
   rellenar() {
